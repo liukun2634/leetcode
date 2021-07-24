@@ -5,3 +5,6 @@
 
 **链表**
  - [138.复制带随机指针的链表](linked-list/138-copy-list-with-random-pointer.md)
+
+ **字符串**
+ - [1736. 替换隐藏数字得到的最晚时间](string/1736-latest-time-by-replacing-hidden-digits.md)
