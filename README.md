@@ -15,3 +15,5 @@
 
 **图**
 - [743. 网络延迟时间](graph/743-network-delay-time.md)
+- [802. 找到最终的安全状态](graph/802-find-eventual-safe-states.md)
+- [847. 访问所有节点的最短路径](graph/847-shortest-path-visiting-all-nodes.md)
