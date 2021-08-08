@@ -6,6 +6,7 @@
  - [1337. 矩阵中战斗力最弱的 K 行](array/1337-the-k-weakest-rows-in-a-matrix.md)
  - [581. 最短无序连续子数组](array/581-shortest-unsorted-continuous-subarray.md)
  - [611. 有效三角形的个数](array/611-valid-triangle-number.md)
+ - [457. 环形数组是否存在循环](array/457-circular-array-loop.md)
 
 **链表**
  - [138.复制带随机指针的链表](linked-list/138-copy-list-with-random-pointer.md)
@@ -17,3 +18,6 @@
 - [743. 网络延迟时间](graph/743-network-delay-time.md)
 - [802. 找到最终的安全状态](graph/802-find-eventual-safe-states.md)
 - [847. 访问所有节点的最短路径](graph/847-shortest-path-visiting-all-nodes.md)
+
+**数学**
+- [1137. 第 N 个泰波那契数](math/1137-n-th-tribonacci-number.md)
