@@ -30,7 +30,9 @@ https://labuladong.gitbook.io/algo/mu-lu-ye-1/mu-lu-ye-3/er-fen-cha-zhao-xiang-j
 - 是否存在找不到target情况，决定是否增加补丁判断
 - 记住，最终left和right值是一样的
 
-#### 双闭区间
+#### 二分搜索模板
+
+左闭右闭模板：
 
 ```cpp
 int left_bound(vector<int> nums, int target)
@@ -42,7 +44,7 @@ int left_bound(vector<int> nums, int target)
             left = mid + 1;
         } else {
             //nums[mid] <= target
-            //锁定左边边界，因为返回是left，最终left是+1比right大
+            //锁定左边边界，因为返回是left，最终left是mid + 1比right大
             right = mid - 1;
         }
     }
@@ -58,6 +60,7 @@ int right_bound(vector<int> nums, int target)
     while (left <= right) {
         int mid = left + (right - left) / 2;
         if (nums[mid] <= target) {
+            //锁定右边边界，最后返回的是right，最终right是mid - 1比left 小
             left = mid + 1;
         } else {
             right = mid - 1;
