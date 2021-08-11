@@ -8,6 +8,7 @@
  - [611. 有效三角形的个数](array/611-valid-triangle-number.md)
  - [457. 环形数组是否存在循环](array/457-circular-array-loop.md)
  - [413. 等差数列划分](array/413-arithmetic-slices.md)
+ - [446. 等差数列划分 II - 子序列](array/446-arithmetic-slices-ii-subsequence.md)
 
 **链表**
  - [138.复制带随机指针的链表](linked-list/138-copy-list-with-random-pointer.md)

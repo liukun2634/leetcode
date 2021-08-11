@@ -4,7 +4,7 @@
 
 https://leetcode-cn.com/problems/arithmetic-slices/
 
-#### 思路： 双指针（快慢指针）
+#### 思路1： 双指针（快慢指针）
 
 关键在于寻找等差数列的长度，然后可以根据长度计算得到子等差数列的个数。
 
@@ -77,5 +77,36 @@ public:
 };
 ```
 
-#### 思路2： 动态规划
+### 思路2： 动态规划
 
+问题是求子序列，考虑使用**动态规划**来解决。
+
+状态定义: `dp[i]` 表示以 `nums[i]` 结尾的等差数列的个数。
+
+状态转移方程： 
+（1）当以`nums[i]`结尾满足等差数列时， 有 `dp[i] = dp[i-1] + 1`
+（2）当以`nums[i]`结尾不满足等差数列时, 有 `dp[i] = 0` 
+
+最终返回结果：是所有dp[i]之和
+
+```cpp
+class Solution {
+public:
+    int numberOfArithmeticSlices(vector<int>& nums) {
+        int n = nums.size();
+        if (n < 3) return 0;
+
+        int res = 0;
+        vector<int> dp(n, 0);
+        for(int i = 2; i < n; i++){
+            if(nums[i] - nums[i-1] == nums[i-1] - nums[i-2]){
+                dp[i] = dp[i-1] + 1;
+            }
+            res+= dp[i];
+        }
+        return res;
+    }
+};
+```
+
+因为`dp[i]` 只与 `dp[i-1]` 有关， 所以可以使用滚动数组进行优化
