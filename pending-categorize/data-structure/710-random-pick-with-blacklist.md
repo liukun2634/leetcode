@@ -13,6 +13,8 @@ https://leetcode-cn.com/problems/random-pick-with-blacklist/
 
 大于whitelist的black 也不用做任何考虑。
 
+
+
 ```cpp
 class Solution {
 private:
