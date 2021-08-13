@@ -24,3 +24,4 @@
 **数学**
 - [1137. 第 N 个泰波那契数](math/1137-n-th-tribonacci-number.md)
 - [313. 超级丑数](math/313-super-ugly-number.md)
+- [233. 数字 1 的个数](math/233-number-of-digit-one.md)
