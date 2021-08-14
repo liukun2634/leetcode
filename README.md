@@ -1,5 +1,8 @@
 ## LeetCode 题解
-  
+
+
+#### 每日一题
+
 **数组**
  - [1743. 从相邻元素对还原数组](array/1743-restore-the-array-from-adjacent-pairs.md)
  - [1893. 检查是否区域内所有整数都被覆盖](array/1893-check-if-all-the-integers-in-a-range-are-covered.md)
@@ -9,6 +12,7 @@
  - [457. 环形数组是否存在循环](array/457-circular-array-loop.md)
  - [413. 等差数列划分](array/413-arithmetic-slices.md)
  - [446. 等差数列划分 II - 子序列](array/446-arithmetic-slices-ii-subsequence.md)
+ - [1583. 统计不开心的朋友](array/1583-count-unhappy-friends.md)
 
 **链表**
  - [138.复制带随机指针的链表](linked-list/138-copy-list-with-random-pointer.md)
