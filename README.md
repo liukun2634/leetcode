@@ -15,7 +15,7 @@
  - [446. 等差数列划分 II - 子序列](/array/446-arithmetic-slices-ii-subsequence.md)
  - [1583. 统计不开心的朋友](/array/1583-count-unhappy-friends.md)
  - [576. 出界的路径数](/array/576-out-of-boundary-paths.md)
- 
+ - [526. 优美的排列](/array/526-beautiful-arrangement.md)
   
 ### 链表
 
