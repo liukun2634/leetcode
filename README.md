@@ -24,6 +24,7 @@
 ### 字符串
 
  - [1736. 替换隐藏数字得到的最晚时间](/string/1736-latest-time-by-replacing-hidden-digits.md)
+ - [551. 学生出勤记录 I](/string/551-student-attendance-record-i.md)
 
 ### 图
 
