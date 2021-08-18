@@ -50,3 +50,18 @@ long long 是 64 位
 ### 优化
 
 参数传递尽量写成全局变量 或者 是地址传递！
+
+### 取余
+
+MOD = 1e9+7
+MOD = 10e8+7
+
+可以支持两个int 相加 再取余，多余两个int 相加，要改用long long 保存
+或者用long long 保存，支持两个int 相乘再取余
+
+### 基本数组
+
+
+int dp[2][3];  
+memset(dp, 0, sizeof(dp)); //设初值
+memcpy(dp, temp, sizeof(temp)); //拷贝另一个数组
