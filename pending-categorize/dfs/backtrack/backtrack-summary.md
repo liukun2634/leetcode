@@ -22,9 +22,49 @@ void backtrack(路径, 所有选择, 已做选择列表):
 参考：
 https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/
 
-### 类型1： 排列 组合 子列问题
+### 类型1： 排列 组合 子集问题
 
-使用used数组进行标记
+46. 全排列（中等）
+47. 全排列 II（中等）
+39. 组合总和（中等）
+40. 组合总和 II（中等）
+77. 组合（中等）
+78. 子集（中等）
+90. 子集 II（中等）
+60. 第 k 个排列（中等）
+93. 复原 IP 地址（中等）
+
+
+全排列问题使用used数组进行标记
+
+对于组合和子集问题，使用 i + 1 作为下一个开始，所以不需要used 来重复标记
+
+对于组合和子集问题，也可以使用mask 来标记下标，将 n！问题转换 2^n
+
+对于组合和子集问题，还可以套用递归遍历模板，遍历得到所有子序列（树遍历）
+https://leetcode-cn.com/problems/subsets/solution/zi-ji-by-leetcode-solution/ 
+
+dfs遍历求子序列模板
+```cpp
+vector<int> t;
+void dfs(int cur, int n) {
+    if (cur == n) {
+        // 记录答案
+        // ...
+        return;
+    }
+    // 考虑选择当前位置
+    t.push_back(cur);
+    dfs(cur + 1, n, k);
+    t.pop_back();
+    // 考虑不选择当前位置
+    dfs(cur + 1, n, k);
+}
+```
+
+
+
+有重复数字，先排序，然后通过相邻数字是否相同决定要不要挪位置
 
 ### 类型2： 小岛问题
 

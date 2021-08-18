@@ -2,6 +2,11 @@
 
 ### STL
 
+**vector**
+
+push_back()
+pop_back()
+
 **unordered_map**
 
 - 声明  unordered_map<int, int> map;
