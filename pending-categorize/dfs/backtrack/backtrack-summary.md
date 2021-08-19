@@ -22,6 +22,14 @@ void backtrack(路径, 所有选择, 已做选择列表):
 参考：
 https://leetcode-cn.com/problems/permutations/solution/hui-su-suan-fa-python-dai-ma-java-dai-ma-by-liweiw/
 
+
+
+**时间复杂度计算:**  根据决策树每个节点的分支树决定
+
+假设是个k 叉树， 那么遍历树的时间复杂度就是 O (k^ n)， n为树高（一般是结果数组的长度）
+
+当然 如果剪枝存在，第一层k 叉，第二层 k - 1 叉，... 那么 结果是 k! (全排列)，当然最后返回结果时操作还需要额外相乘，比方全排列最后要把结果压入，就需要 n * k!
+
 ### 类型1： 排列 组合 子集问题
 
 46. 全排列（中等）
