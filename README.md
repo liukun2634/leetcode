@@ -26,7 +26,7 @@
  - [1736. 替换隐藏数字得到的最晚时间](/string/1736-latest-time-by-replacing-hidden-digits.md)
  - [551. 学生出勤记录 I](/string/551-student-attendance-record-i.md)
  - [552. 学生出勤记录 II](/string/552-student-attendance-record-ii.md)
- 
+ - [345. 反转字符串中的元音字母](/string/345-reverse-vowels-of-a-string.md)
 ### 图
 
 - [743. 网络延迟时间](/graph/743-network-delay-time.md)
