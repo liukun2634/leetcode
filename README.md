@@ -28,6 +28,7 @@
  - [552. 学生出勤记录 II](/string/552-student-attendance-record-ii.md)
  - [345. 反转字符串中的元音字母](/string/345-reverse-vowels-of-a-string.md)
  - [541. 反转字符串 II](/string/541-reverse-string-ii.md)
+ - [443. 压缩字符串](/string/443-string-compression.md)
 
 ### 图
 
