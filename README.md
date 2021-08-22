@@ -2,7 +2,7 @@
 
 ## 每日一题
 
-### 数组
+### 数组 
 
  - [1743. 从相邻元素对还原数组](/array/1743-restore-the-array-from-adjacent-pairs.md)
 
