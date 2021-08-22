@@ -16,6 +16,7 @@
  - [1583. 统计不开心的朋友](/array/1583-count-unhappy-friends.md)
  - [576. 出界的路径数](/array/576-out-of-boundary-paths.md)
  - [526. 优美的排列](/array/526-beautiful-arrangement.md)
+ - [789. 逃脱阻碍者](/array/789-escape-the-ghosts.md)
   
 ### 链表
 
