@@ -60,4 +60,82 @@ step 可以理解成 需要返回的结果
  - step 与节点作为一个pair {node, step} 同时压入队列中
 
 
- ## 双向BFS优化
+## 双向BFS优化
+
+原理：两个队列，一个从起点出发，一个从终点出发。
+
+实现方式1：
+
+两个队列还需要分别增加一个`hashmap<key, value>` ，一方面可以判断是否存在于已访问的集合中，同时又能快速拿到该节点需要走过的步数。但可以省去visited了，因为map可以记录该信息。
+
+该结构参考： https://leetcode-cn.com/problems/open-the-lock/solution/gong-shui-san-xie-yi-ti-shuang-jie-shuan-wyr9/
+
+实现方式2：
+
+关于如何存储，两个队列，还可以用两个hashset，不需要队列和map组合，只不过在遍历时候需要额外的一个hashset存储中间结果（控制入队）。
+
+该结构参考： https://labuladong.gitbook.io/algo/mu-lu-ye-3/mu-lu-ye-1/bfs-kuang-jia
+
+**双向 BFS 局限，必须知道终点在哪里。**
+
+双向BFS模板：
+
+```C++
+
+int doubleDirectionBFS() {
+    //双向BFS
+    queue<string> q1;
+    queue<string> q2;
+    unordered_map<string, int> m1;
+    unordered_map<string, int> m2;
+
+    //压入起点和终点
+    q1.push(start);
+    q2.push(target);
+    m1.emplace(start, 0);
+    m2.emplace(target, 0);
+
+    //搜索
+    while(!q1.empty() && !q2.empty()){
+        int step = -1;
+        if(q1.size() < q2.size()){
+            step = bfs(q1, m1, m2);
+        } else {
+            step = bfs(q2, m2, m1);
+        }
+        if(step != -1) return step;
+    }
+    return -1;
+}
+
+int bfs(queue<string>& q, unordered_map<string, int>& m, unordered_map<string, int>& other){
+    int sz = q.size();
+    for(int i = 0; i < sz; i++){
+        string cur = q.front();
+        q.pop();
+        int step = m[cur];
+
+        if(other.count(cur)) return step + other[cur];
+
+        vector<string> nexts = generateNext(cur);
+        for(string next : nexts) {
+            //如果没访问过，入队同时更新map
+            if(!m.count(next)){
+                q.push(next);
+                m.emplace(next, step + 1);
+            }
+        }
+    }
+    return -1;
+}
+
+vector<string> generateNext(string cur){
+    vector<string> res;
+    return res;
+}
+
+```
+
+
+
+ ## 多源BFS
