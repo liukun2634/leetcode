@@ -17,6 +17,7 @@
  - [576. 出界的路径数](/array/576-out-of-boundary-paths.md)
  - [526. 优美的排列](/array/526-beautiful-arrangement.md)
  - [789. 逃脱阻碍者](/array/789-escape-the-ghosts.md)
+ - [1646. 获取生成数组中的最大值](/array/1646-get-maximum-in-generated-array.md)
   
 ### 链表
 
