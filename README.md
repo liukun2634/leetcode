@@ -37,6 +37,7 @@
 - [743. 网络延迟时间](/graph/743-network-delay-time.md)
 - [802. 找到最终的安全状态](/graph/802-find-eventual-safe-states.md)
 - [847. 访问所有节点的最短路径](/graph/847-shortest-path-visiting-all-nodes.md)
+- [787. K 站中转内最便宜的航班](/graph/787-cheapest-flights-within-k-stops.md)
 
 ### 数学
 
