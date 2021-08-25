@@ -30,6 +30,20 @@ pop()
 
 **priority_queue**
 
+默认是大顶堆
+
+top 访问队头元素
+empty 队列是否为空
+size 返回队列内元素个数
+push 插入元素到队尾 (并排序)
+emplace 原地构造一个元素并插入队列
+pop 弹出队头元素
+swap 交换内容
+
+greater 是小顶堆
+less 是大顶堆
+
+https://blog.csdn.net/weixin_36888577/article/details/79937886
 
 
 ### algorithm
@@ -38,8 +52,8 @@ pop()
 - sort()
 
 - greater<int>() 从大到小
-
-
+- less<int>() 从小到大
+https://blog.csdn.net/cnd2449294059/article/details/77090174
 ### lambda
 
 `[](传入类型) -> 返回类型 { 代码区; }`
@@ -77,7 +91,12 @@ MOD = 10e8+7
 
 ### 基本数组
 
-
 int dp[2][3];  
 memset(dp, 0, sizeof(dp)); //设初值
 memcpy(dp, temp, sizeof(temp)); //拷贝另一个数组
+
+**二维数组转换成一维**
+
+m 是行数，n 是列数
+
+(x,y) 可以转换成 x * n + y 
