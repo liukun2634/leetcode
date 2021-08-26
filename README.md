@@ -18,6 +18,7 @@
  - [526. 优美的排列](/array/526-beautiful-arrangement.md)
  - [789. 逃脱阻碍者](/array/789-escape-the-ghosts.md)
  - [1646. 获取生成数组中的最大值](/array/1646-get-maximum-in-generated-array.md)
+ - [881. 救生艇](/array/881-boats-to-save-people.md)
   
 ### 链表
 
