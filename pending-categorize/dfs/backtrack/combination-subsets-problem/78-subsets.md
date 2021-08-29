@@ -89,5 +89,39 @@ https://leetcode-cn.com/problems/subsets/solution/zi-ji-by-leetcode-solution/
 
 **复杂度分析**
 
-时间复杂度：O(n * 2^n) 比全排列 少n，
+时间复杂度：O(n * 2^n)
 
+
+### 思路4: 枚举所有子集
+
+状态压缩 +　利用枚举子集的技巧：
+
+```C++
+for(int i = (1 << n) - 1; i; i = ((i - 1) & m)){
+}
+```
+
+```C++
+class Solution {
+public:
+    vector<vector<int>> res;
+    vector<int> subset;
+    vector<vector<int>> subsets(vector<int>& nums) {
+        int n = nums.size();
+        int m = (1 << n) - 1;
+        res.push_back(subset);
+        for(int i = m; i; i = ((i - 1) & m)){
+            subset.clear();
+            for(int j = 0; j < n; j++){
+                if(i & (1 << j)){
+                    subset.push_back(nums[j]);
+                }
+            }
+            res.push_back(subset);
+        }
+        return res;
+    }
+};
+```
+
+时间复杂度：O(n * 2^n)
