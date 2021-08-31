@@ -3,11 +3,11 @@
 
 ### 算法技巧
  - [双指针](/categorized-algorithm/two-pointers)
-    - [二分搜索](/categorized-algorithm/binary-search)
-    - [滑动窗口](/categorized-algorithm/sliding-window)
-    - [快慢指针](/categorized-algorithm/fast-slow-search)
- - [深度优先遍历 DFS](/categorized-algorithm/dfs)
- - [广度优先遍历 BFS](/categorized-algorithm/bfs)
+    - [二分搜索](/categorized-algorithm/two-pointers/binary-search)
+    - [滑动窗口](/categorized-algorithm/two-pointers/sliding-window)
+    - [快慢指针](/categorized-algorithm/two-pointers/fast-slow-search)
+ - [深度优先遍历(DFS)](/categorized-algorithm/dfs)
+ - [广度优先遍历(BFS)](/categorized-algorithm/bfs)
  - [动态规划](/categorized-algorithm/dynamic-programming)
  - [贪心算法](/categorized-algorithm/greedy-algorithm)
 
