@@ -6,9 +6,13 @@ https://leetcode-cn.com/problems/lru-cache/
 
 ### 思路： HashMap + 双向链表
 
-LinkedHashMap 的使用
+需要一个hashmap，从而保证O(1)的get 和 put
 
-```C++
+需要一个双向链表这样可以保证能够O(1)的remove first 和 同时remove 最近使用的x到链表头部
+
+Java LinkedHashMap
+
+```Java 
 class LRUCache {
     LinkedHashMap<Integer, Integer> cache = new LinkedHashMap();
     int cap;
@@ -52,12 +56,6 @@ class LRUCache {
     }
 }
 
-/**
- * Your LRUCache object will be instantiated and called as such:
- * LRUCache obj = new LRUCache(capacity);
- * int param_1 = obj.get(key);
- * obj.put(key,value);
- */
 ```
 
 **复杂度分析**
