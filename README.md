@@ -2,6 +2,7 @@
 
 
 ### 算法技巧
+
  - [双指针](/categorized-algorithm/two-pointers)
     - [二分搜索](/categorized-algorithm/two-pointers/binary-search)
     - [滑动窗口](/categorized-algorithm/two-pointers/sliding-window)
@@ -18,6 +19,7 @@
  - [并查集](/categorized-algorithm/union-find)
 
 ### 专题训练
+
  - [N-sum](/categorized-algorithm/n-sum)
 
 ### 每日一题
