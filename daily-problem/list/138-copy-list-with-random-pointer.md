@@ -1,9 +1,8 @@
 ### 138. 复制带随机指针的链表
 
 #### 题目: 
+
 https://leetcode-cn.com/problems/copy-list-with-random-pointer/
-
-
 
 #### 思路1:  
 使用 hashmap 存储老节点X和新节点x对应关系
