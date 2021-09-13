@@ -75,7 +75,7 @@ root 本身就是一个节点，加上左右子树的节点数就是以 root 为
 2. root 节点需要干什么
 3. root 节点的left 和 right 需要怎么调用
 
-### 例题
+### 递归标准模板
 
 226. 翻转二叉树
 
@@ -84,7 +84,7 @@ class Solution {
     public TreeNode invertTree(TreeNode root) {
         //1. 递归终止条件
         if(root == null) return root;
-        //2. 当前root节点要干什么
+        //2. 当前root节点要干什么 (前序遍历)
         TreeNode tmp = root.left;
         root.left = root.right;
         root.right = tmp;
@@ -93,5 +93,28 @@ class Solution {
         invertTree(root.right);
         return root;
     }
+}
+```
+
+
+### 额外的技巧 - 序列化
+
+二叉树的序列化， 可以用于快速判断子树是否相同
+
+```C++
+string traverse(TreeNode* p){
+   //1. 返回条件，null 用"#" 标记
+   if(p == nullptr) return "#";
+   
+   //2. 调用左右子树，得到左右子树的序列化结果
+   string left = traverse(p->left);
+   string right = traverse(p->right);
+
+   //3. 后序遍历，先知道最右子树的值后才知道当前子树序列化的值, 注意还需要增加分隔符
+   string serial = to_string(p->val) + "," + left + "," + right;
+
+   //...这里可以增加其他判断逻辑
+
+   return serial;
 }
 ```
