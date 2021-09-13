@@ -32,6 +32,12 @@ https://labuladong.gitbook.io/algo/mu-lu-ye-1/mu-lu-ye-3/er-fen-cha-zhao-xiang-j
 
 #### 二分搜索模板
 
+注意：左侧和右侧是target 重复时，最左边和最右边 （而不是小于target 和 大于target）。
+
+> 需要小于和大于target的边界，需要根据右闭的关系（返回right 和 left）
+
+参考 1894 题
+
 左闭右闭模板：
 
 ```cpp
