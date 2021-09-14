@@ -36,6 +36,46 @@ public:
 
 ### 思路2：矩阵快速幂
 
-```C++
+https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof/solution/gong-shui-san-xie-yi-ti-si-jie-dong-tai-9zip0/
 
+
+```C++
+class Solution {
+public:
+    int MOD = 1e9 + 7;
+
+    int fib(int n) {
+        if(n < 2) return n;
+        vector<vector<long long>> ans = {{1},{0}};
+        vector<vector<long long>> mat = {{1, 1},{1, 0}};
+        pow(ans, mat, n - 1);
+        return ans[0][0];
+    }
+
+    //快速幂
+    void pow(vector<vector<long long>>& ans, vector<vector<long long>>& mat, int n){ 
+        while(n > 0){
+            if(n & 1){
+                ans = multiply(ans, mat);
+            }
+            n = n >> 1;
+            mat = multiply(mat, mat);
+        }
+    }
+
+    //矩阵乘法
+    vector<vector<long long>> multiply(vector<vector<long long>>& a, vector<vector<long long>>& b){
+        int  n = a.size(), r = a[0].size(), m = b[0].size(); 
+        vector<vector<long long>> c(n, vector<long long>(m));
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                for(int k = 0; k < r; k++){
+                    c[i][j] += a[i][k] * b[k][j];
+                    c[i][j] %= MOD;
+                }
+            }
+        }
+        return c;
+    }
+};
 ```
