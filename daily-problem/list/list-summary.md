@@ -3,7 +3,6 @@
 https://mp.weixin.qq.com/s/dVqXEMKZ6_tuB7J-leLmtg
 
 
-
 ## 链表节点
 
 ```C++
