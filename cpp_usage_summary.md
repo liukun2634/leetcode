@@ -41,11 +41,24 @@ emplace 原地构造一个元素并插入队列
 pop 弹出队头元素
 swap 交换内容
 
-greater 是小顶堆
+greater 是小顶堆 （这与排序是反的， > 反而是小顶堆）
 less 是大顶堆
 
 https://blog.csdn.net/weixin_36888577/article/details/79937886
 
+自定义 compare 函数
+http://neutrofoton.github.io/blog/2016/12/29/c-plus-plus-priority-queue-with-comparator/
+
+```C++
+struct CustomCompare
+{
+    bool operator()(const int& lhs, const int& rhs)
+    {
+        return lhs < rhs; //小于号是大顶堆
+    }
+};
+priority_queue<int,vector<int>, CustomCompare > pq;
+```
 
 ### algorithm
 
