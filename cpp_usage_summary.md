@@ -31,6 +31,8 @@ pop()
 
 **priority_queue**
 
+#include<queue>
+
 默认是大顶堆
 
 top 访问队头元素
@@ -103,6 +105,10 @@ MOD = 10e8+7
 可以支持两个int 相加 再取余，多余两个int 相加，要改用long long 保存
 或者用long long 保存，支持两个int 相乘再取余
 
+### 向上取整技巧
+
+ceil(x/n)  -> (x+n-1)/n
+
 ### 基本数组
 
 int dp[2][3];  
@@ -158,3 +164,8 @@ i | j  相当于 i 加上了 j
             res = res * 10 + (s[i] - '0');
         }
 ```
+
+### 输入输出
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
