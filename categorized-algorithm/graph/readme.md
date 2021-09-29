@@ -130,7 +130,114 @@ BFS 是从入度数组为0的时候，扩散出来，遍历所有不是环的节
 
 2. DFS + 后序遍历 + 翻转
 
-
 你记住拓扑排序就是后序遍历反转之后的结果，且拓扑排序只能针对有向无环图，进行拓扑排序之前要进行环检测，这些知识点已经足够了。
+
+### 单源最短路径
+
+https://leetcode-cn.com/problems/network-delay-time/solution/gong-shui-san-xie-yi-ti-wu-jie-wu-chong-oghpz/
+
+dp[i] 是从 start到 i的最短距离。
+
+则有 dp[i] = min(dp[j] + j 到 i 的权值)
+
+如果是有向图，则可以通过BFS拓扑排序方式，利用上面的递推公式，求得start 点到所有点的最短距离
+
+但如果是无向图，且图中存在圈，那么就不能利用拓扑排序，而可以使用Bellman-Ford（动态规划，可判断负圈） / Dijkstra(贪心， 无法处理负圈)
+
+### Bellman Ford
+
+遍历所有的边，每次更新
+dp[i] = min(dp[j] + j 到 i 的权重)
+
+外层最多是V- 1次（顶点数）
+
+
+### Dijkstra
+
+这里因为带权，所以使用优先队列代替BFS 的 队列的方式。
+
+前提条件是非负权图，因为是贪心算法。
+
+可以求一个点到其他所有点的最短路径。
+
+```C++
+using PII = pair<int,int>;
+
+int INF = 0x3f3f3f3f;
+
+//返回其他节点距离start节点的最短距离
+//neighbors 存储：from, to, cost
+//n 为节点数 (1 - n)
+//start 是起始节点
+vector<int> dijkstra(vector<vector<int>>& neighbors, int n, int start){
+    //1. 构建邻接矩阵(值为权重)， 也可以换成邻接表（需要额外的class 同时保存 to 和 cost）   
+    vector<vector<int>> graph(n + 1, vector<int>(n + 1, INF)); 
+
+    for(auto& neighbor : neighbors){
+        int from = neighbor[0];
+        int to = neighbor[1];
+        int cost = neighbor[2];
+        graph[from][to] = cost;
+        //如果是无向图
+        //graph[from][to] = cost;
+    }
+
+    //2. 使用的数据结构
+    //小顶堆（默认是大顶堆）
+    priority_queue<PII, vector<PII>, greater<PII>> pq;
+    //保存与start 的距离, 默认均为最大值
+    vector<int> dp(n + 1, INF);
+    //3. 初始化
+    pq.push({0, start});
+
+    //4. 遍历 (区别： 优先队列只 pop 堆顶，而BFS 队列遍历是配for遍历一层)
+    while(not pq.empty()){
+        int dist = pq.top().first;
+        int idx = pq.top().second;
+        pq.pop();
+
+        //关键判断：计算过该节点，跳过, 要小于号，否则第一个节点就被continue了
+        if(dist > dp[idx]) continue; 
+
+        //更新当前的值
+        dp[idx] = dist;
+
+        //遍历相邻节点
+        for(int i = 1; i <= n; i++){
+            //压入距离更新后更短的节点
+            if(graph[idx][i] + dist < dp[i]){
+                pq.push({graph[idx][i] + dist, i});
+            }
+        }
+    }
+    return dp;
+}
+```
+
+其中，更新值的位置也可以放到相邻节点里更新， 这主要关系到的是第一个的初始化节点是在循环外面，还是在循环里面进行赋值。
+
+```C++
+    dp[start] = 0; //对start节点额外赋值
+    pq.push({0, start});
+
+    while(not pq.empty()){
+        int dist = pq.top().first;
+        int idx = pq.top().second;
+        pq.pop();
+
+        //关键判断：计算过该节点，跳过, 要小于号，否则第一个节点就被continue了
+        if(dist > dp[idx]) continue; 
+
+        //遍历相邻节点
+        for(int i = 1; i <= n; i++){
+            //压入距离更新后更短的节点
+            if(graph[idx][i] + dist < dp[i]){
+                //不同位置主要影响第一个节点初始化：更新下一个值
+                dp[i] = graph[idx][i] + dist;
+                pq.push({dp[i], i});
+            }
+        }
+    }
+```
 
 
