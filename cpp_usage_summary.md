@@ -172,6 +172,22 @@ i | j  相当于 i 加上了 j
 ```
 
 ### 输入输出
+
+```C++
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
+```
+
+字符串输入
+https://www.runoob.com/note/50168
+
+读入char[] 
+```C++
+cin.getline();
+```
+读入string： 接受一个字符串，可以接收空格并输出，需包含 #include<string>
+```C++
+getline(cin, s);
+gets(s);
+```
