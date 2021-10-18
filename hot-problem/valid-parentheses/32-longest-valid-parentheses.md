@@ -85,3 +85,51 @@ public:
 
 时间复杂度：O(n)
 空间复杂度：O(n)
+
+
+### 思路3： 计数
+
+left 和 right 计数。
+当right > left 时，说明不匹配了。可以重新开始计数。
+
+当然需要两边都计数一次。处理 '(()'这种情况。
+
+```C++
+
+class Solution {
+public:
+    int longestValidParentheses(string s) {
+        int left = 0, right = 0, n = s.size();
+        int res = 0;
+        for(int i = 0; i < n; i++){
+            if(s[i] == '('){
+                left++;
+            } else{
+                right++;
+            }
+            if(right == left){
+                res = max(res, 2 * right);
+            } else if(right > left){
+                left = right = 0;
+            }
+        }
+        
+        //重新赋值为0
+        left = right = 0;
+        for(int i = n - 1; i >= 0; i--){
+            if(s[i] == ')'){
+                left++;
+            } else{
+                right++;
+            }
+            if(right == left){
+                res = max(res, 2 * right);
+            } else if(right > left){
+                left = right = 0;
+            }
+        }
+        return res;
+    }
+};
+
+```
