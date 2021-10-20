@@ -105,6 +105,9 @@ MOD = 10e8+7
 可以支持两个int 相加 再取余，多余两个int 相加，要改用long long 保存
 或者用long long 保存，支持两个int 相乘再取余
 
+
+INF = 0x3f3f3f3f
+
 ### 向上取整技巧
 
 ceil(x/n)  -> (x+n-1)/n

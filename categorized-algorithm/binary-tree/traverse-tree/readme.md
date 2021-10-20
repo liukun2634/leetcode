@@ -12,7 +12,9 @@
 思路1：利用中序栈遍历方法，先while找到最left 的指针，再开始pop 栈，通过将res记录放到while 找left的循环中，实现先序遍历。
 这里还需注意，除了判断栈为空以外，还需判断p是否为空，从而可以继续pop stack。
 
-该策略适合前序，中序 和 后序（改为先找right指针）三种
+该策略适合前序，中序 和 后序（改为先找right指针, 最后翻转数组 || 或者在 right 指针时候判断 right 是否为 nullptr 插入到数组）三种
+
+前序
 ```C++
 class Solution {
 public:
@@ -38,8 +40,42 @@ public:
 };
 ```
 
+后序非倒序：
+
+```C++
+class Solution {
+public: 
+    
+    vector<int> postorderTraversal(TreeNode* root) {
+        vector<int> res;
+        if(root == nullptr) return res;
+        stack<TreeNode*> stk;
+        TreeNode* p = root;
+        TreeNode* prev = nullptr;
+        while(!stk.empty() || p != nullptr){
+            while(p != nullptr){
+                stk.push(p);
+                p = p -> left;
+            }
+            p = stk.top();
+            stk.pop();
+            
+            if(p -> right == nullptr || p -> right == prev){
+                res.push_back(p->val);
+                prev = p;
+                p = nullptr;
+            } else {
+                stk.push(p);
+                p = p -> right;
+            }
+        
+        }
+        return res;
+    }
+};
+```
 思路2，单层while 循环，先压入right，再压入left
-该策略只适合前序和后序遍历（后序是先压入left，后压入right）
+该策略只适合前序和后序遍历（后序是先压入left，后压入right， 最后翻转数组）
 
 ```C++
 class Solution {
@@ -69,3 +105,6 @@ public:
     }
 };
 ```
+
+
+
