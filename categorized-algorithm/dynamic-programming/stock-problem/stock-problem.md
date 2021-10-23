@@ -8,7 +8,7 @@ https://leetcode-cn.com/problems/stone-game/
 
 定义 dp[l][r] 为考虑区间 [l,r]，在双方都做最好选择的情况下，先手与后手的最大得分差值为多少。
 
-```C++
+```Java
 class Solution {
     public boolean stoneGame(int[] piles) {
         int n = piles.length;
