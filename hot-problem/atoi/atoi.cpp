@@ -39,5 +39,6 @@ int myAtoi(string s){
         start++;
     }
     
+    //4. return value check
     return flag? -res : res;
 }

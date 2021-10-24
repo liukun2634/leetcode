@@ -1,5 +1,6 @@
 # 遍历树的方式
 
+https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
 
 1. 递归
 
@@ -108,3 +109,92 @@ public:
 
 
 
+思路3：三色标记法：
+
+https://leetcode-solution-leetcode-pp.gitbook.io/leetcode-solution/thinkings/tree#shu-de-bian-li-die-dai-xie-fa
+
+先压入右指针，再压入左指针。
+
+根节点根据位置 压入后，中，前 对于前序，中序，后序。
+
+前序遍历
+```C++
+enum COLOR {
+    WHITE = 0,
+    GRAY = 1
+};
+
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> res;
+        if(root == nullptr) return res;
+        
+        stack<pair<TreeNode*, COLOR>> stk;
+        stk.push({root, WHITE});
+        while(!stk.empty()){
+            auto [p, color] = stk.top();
+            stk.pop();
+
+            if(color == WHITE) {
+                //先压入 右节点
+                if(p -> right != nullptr) {
+                    stk.push({p->right, WHITE});
+                }
+
+                //再压入 左节点
+                if(p -> left != nullptr) {
+                    stk.push({p->left, WHITE});
+                }
+                //最后压入gray，是先序遍历，最先pop 出来
+                stk.push({p, GRAY});
+            } else {
+                res.push_back(p->val);
+            }
+        }
+        return res;
+    }
+};
+```
+
+
+中序
+```C++
+enum COLOR {
+    WHITE = 0,
+    GRAY = 1
+};
+
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> res;
+        if(root == nullptr) return res;
+        
+        stack<pair<TreeNode*, COLOR>> stk;
+        stk.push({root, WHITE});
+        while(!stk.empty()){
+            auto [p, color] = stk.top();
+            stk.pop();
+
+            if(color == WHITE) {
+                //先压入 右节点
+                if(p -> right != nullptr) {
+                    stk.push({p->right, WHITE});
+                }
+                //压入gray
+                stk.push({p, GRAY});
+                //压入 左节点
+                if(p -> left != nullptr) {
+                    stk.push({p->left, WHITE});
+                }
+            } else {
+                res.push_back(p->val);
+            }
+        }
+        return res;
+    }
+};
+```
+
+实现上 WHITE 就表示的是递归中的第一次进入过程，Gray 则表示递归中的从叶子节点返回的过程。
