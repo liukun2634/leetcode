@@ -53,7 +53,7 @@ return dummy -> next;
 
 - 合并两个链表
 - 合并K个链表（优先队列）
-- 删除倒数第k个节点
+- 删除倒数第k个节点 (快慢指针找倒数 + dummy 指针删除)
   
 ### 反转链表
 
@@ -65,8 +65,19 @@ return dummy -> next;
 - 栈反转
 
 1. 反转整个链表 （递归，迭代）
+
 2. 反转前N个 （记录后驱节点，反转后连接后驱节点）
 3. 反转一部分 （利用2，递归， 迭代头插法）
 4. 反转k组 （迭代头插法）
 
+### 指针删除
 
+删除操作，考虑可能删的是head， 所以增加dummy 指针
+
+```C++
+  ListNode* next = cur -> next;
+  delete cur;
+  pre -> next = next;
+  return dummy -> next;
+
+```
