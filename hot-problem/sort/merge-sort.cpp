@@ -27,6 +27,7 @@ void merge(vector<int>& nums, int left, int mid, int right){
 void merge_sort(vector<int>& nums, int left, int right){
     if(left >= right) return;
 
+    //这里与quick sort 区别
     int mid = left + (right - left) / 2;
     merge_sort(nums, left, mid);
     merge_sort(nums, mid + 1, right);

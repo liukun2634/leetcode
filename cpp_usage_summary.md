@@ -32,8 +32,6 @@ push()
 front()
 pop()
 
-
-
 **priority_queue**
 
 #include<queue>
@@ -64,7 +62,7 @@ struct CustomCompare
         return lhs < rhs; //小于号是大顶堆
     }
 };
-priority_queue<int,vector<int>, CustomCompare > pq;
+priority_queue<int,vector<int>, CustomCompare> pq;
 ```
 
 ### algorithm
